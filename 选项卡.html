@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu{
+            height: 30px;
+        }
+
+        #menu li{
+            float: left;
+            height: 30px;
+            width: 100px;
+            margin-right: 10px;
+            background: #ccc;
+            text-align: center;
+        }
+        #content {
+            height: 200px;
+            width:400px;
+            margin: 50px auto ;
+
+        }
+        #sub-menu {
+            height: 170px;
+            width:400px;
+            background: #ccc;
+            border-top: 1px solid #000;
+
+        }
+        #menu .select{
+            background:#000 ;
+            height: 30px;
+            width: 100px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <ul id="menu">
+        <li class="select">js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="sub-menu">
+        我们是祖国的花朵。
+    </div>
+</div>
+<script>
+    var arr = [1111111,2222222,3333333]//如果是字符串，就要加双引号
+    var oMneu =document.getElementById("menu");
+    var oLi=document.getElementsByTagName("li");
+    var oSubmiu =document.getElementById ("sub-menu");
+    var last = 0;
+    for(var i=0;i<oLi.length ;i++){
+        oLi[i].index =i;
+        oLi[i].onclick =function (){
+            oLi[last].className ="";
+            this.className = 'select';
+            last =this.index;
+            oSubmiu.innerHTML =arr[this.index];
+
+        }
+    }
+
+</script>
+</body>
+</html>
