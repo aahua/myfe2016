@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            height: 25px;
+        }
+        li{
+            float: left;
+            width: 50px;
+            height: 25px;
+            background: #ccc;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 25px;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container {
+            height: 200px;
+            width: 300px;
+            margin: 50px auto;
+        }
+        #content {
+            height: 170px;
+            width: 300px;
+            background: #ccc;
+            border-top: 1px solid #000000;
+          text-align: center;
+           line-height: 100px;
+        }
+        .select {
+            background: #000000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="menu">
+        <li class="select">js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id="content">
+        希望我下一次能再坚持一下！不管多累！
+    </div>
+</div>
+<script>
+    var arr =[111111111,2222222,33333333]
+    var oMenu = document.getElementById ('menu');
+    var aLi = oMenu.getElementsByTagName ('li');
+    var oContent = document.getElementById ('content');
+    var Last=0;
+    oContent.innerHTML =arr[0];
+    for (i=0;i<aLi.length ;i++){
+        aLi[i].index = i;
+        aLi[i].onclick =function(){
+            aLi[Last].className="";
+            this.className='select';
+            Last = this.index;
+            oContent.innerHTML = arr[this.index];
+        }
+        aLi[i].onselectstart = function (){
+            return  false ;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
