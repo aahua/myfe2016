@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container {
+            width:680px;
+            height: 440px;
+            margin: 50px auto;
+        }
+        img{
+            border:0;
+        }
+        #content a img{
+            float: left;
+            width: 680px;
+            height: 440px;
+        }
+        #content a{
+            display: none;
+        }
+        #content a.select {
+            display:block;
+        }
+        #nav li,#car span{
+            background: #000;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #nav {
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+        #car {
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+        }
+        #container {
+            position: relative;
+        }
+        #nav li.select {
+            background: orange;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="container">
+<ul id="nav">
+    <li class="select">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    </ul>
+    <div id="content">
+        <a href="#" class="select"><img src="艾斯.jpg"></a>
+        <a href="#"><img src="龙猫00.jpg"></a>
+        <a href="#"><img src="龙猫2.jpg "></a> 
+        <a href="#"><img src="索隆.jpg"></a>
+    </div>
+     <div id="car">
+         <span id="prev">&lt;</span>
+         <span id="next">&gt;</span>
+     </div>
+    </div>
+<script>
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName ('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName ('a');
+    var oPrev = document.getElementById ('prev');
+    var oNext = document.getElementById ('next');
+    var iNow = 0;
+    for( var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover =function(){
+          changeImg(this.index);
+        }
+    }
+    oPrev.onclick =function(){
+        iNow++;
+        if(iNow==aLi.length){
+            iNow =0;
+        }
+        changeImg(iNow);
+
+    }
+    oNext.onclick =function(){
+        iNow--;
+        if(iNow==-1){
+            iNow =aLi.length-1;
+        }
+        changeImg(iNow);
+    }
+    function changeImg (idx){
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = "";
+            aImg[i].className = "";
+        }
+        aLi[idx].className = 'select';
+        aImg[idx].className = 'select';
+    }
+    var timer;
+    function run(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        }, 2000);
+    }
+    run();
+
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function(){
+        run();
+    };
+
+</script>
+</body>
+</html>
