@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width:680px;
+            height: 440px;
+            margin: 100px auto;
+            overflow:  hidden;
+            position: relative;
+
+        }
+        #content {
+            width: 2720px;
+            height: 440px;
+            position: absolute;
+        }
+        #nav{
+            height: 20px;
+            bottom: 20px;
+            right: 20px;
+            position: absolute;
+            z-index: 1;
+
+        }
+        #car{
+            height: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        #nav li, #car span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background:black;
+            color: white;
+            text-align: center;
+            height: 20px;
+            cursor: pointer;
+
+
+        }
+        #content  img{
+            width: 680px;
+            height: 440px;
+            float:left;
+            margin-right: 0;
+
+        }
+        #nav li.select {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="nav">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img src="索隆.jpg" alt="">
+        <img src="艾斯.jpg " alt="">
+        <img src="龙猫2.jpg" alt="">
+        <img src="龙猫00.jpg" alt="">
+    </div>
+    <div id="car">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script src="jislib.js "></script>
+<script>
+    var oNav =document.getElementById('nav');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName ('img');
+    var aLi = oNav.getElementsByTagName ('li');
+    var oConcainer = document.getElementById ('container');
+    var iImgWidth =aImg[0].offsetWidth;
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var iNow = 0;
+    oContent.appendChild(aImg[0].cloneNode());
+    oContent.style.width = iImgWidth *aImg.length +"px";
+    for( var i=0;i<aLi.length;i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+                changeimg(this.index);
+            }
+            oPrev.onclick = oNext.onclick = function () {
+                if (this == oPrev) {
+                    iNow--;
+                    if(iNow ==-1){
+                        iNow = aImg.length - 2;
+                        oContent.style.left= -(aImg.length - 1)* iImgWidth  + iImgWidth +"px";
+                    }
+                    changeimg(iNow);
+                }
+                else {
+                    iNow++;
+                    if(iNow == aImg .length){
+                        iNow = 1 ;
+                        oContent.style.left = 0;
+                    }
+                }
+                changeimg(iNow)
+            }
+        }
+    function changeimg(index){
+       iNow = index;
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+        }
+        aLi[iNow ==aLi.length?0:iNow].className = 'select';
+        animate(oContent, {
+            left: -iNow * iImgWidth
+        })
+    }
+    var timer;
+    function run(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        },1000);
+    }
+    run();
+    oConcainer.onmouseover =function(){
+        clearInterval (timer);
+    }
+    oConcainer.onmouseout = function (){
+        run();
+    }
+
+
+
+</script>
+</body>
+</html>
