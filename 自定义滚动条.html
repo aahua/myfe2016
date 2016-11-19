@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #container {
+            height:250px;
+            width: 250px;
+            background:#cccccc;
+            position: relative;
+            overflow: hidden;
+        }
+        #content {
+            width: 230px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #scroll-bar {
+            width: 20px;
+            height:250px;
+            position: absolute;/*这个要定位是要把他的位置置于右边。*/
+            right: 0;
+            top:0;
+        }
+        #scroll-btn {
+            width: 20px;
+            height: 20px;
+            background: #aaaaaa;
+            position: absolute;/*这个定位是为了让滚动框相对于scroll-bar框里滚动*/
+            cursor: pointer;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div  id="container">
+    <div id="content">三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三
+        毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛
+        三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛三毛</div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+</div>
+<script>
+    var  oContainer = document.getElementById ('container');
+    var oContent = document.getElementById ('content');
+    var oScrollbtn = document.getElementById ('scroll-btn');
+     oScrollbtn.onmousedown  = function(e){
+         e = e  || window.event;
+         iDisX = e.clientX ;
+         iDisY = e.clientY - oContainer.offsetTop - oScrollbtn .offsetTop ;
+       document.onmousemove = function(e){
+             e = e || window.event;
+             var iTop = e.clientY - oContainer.offsetTop - iDisY ;
+        if(iTop <=0){
+            iTop = 0;
+        }
+             if(iTop >=oContainer.offsetHeight - oScrollbtn.offsetHeight){
+                 iTop = oContainer.offsetHeight - oScrollbtn.offsetHeight;
+             }
+             oScrollbtn.style.top = iTop + 'px';
+             var fScale = iTop / (oContainer.offsetHeight  - oScrollbtn.offsetHeight);
+             oContent.style.top = -(oContent.offsetHeight - oContainer.offsetHeight)* fScale + 'px';
+             return false;
+         }
+         document.onmouseup = function(){
+             document.onmousemove = null;
+             document.onmouseup = null;
+         }
+     }
+</script>
+
+</body>
+</html>
