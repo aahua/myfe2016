@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #contriner {
+            height: 250px;
+            width: 250px;
+            margin: 100px auto;
+
+        }
+       #content {
+          height:210px ;
+           width: 250px;
+
+           background: #cccccc;
+          border-top: 1px solid #000;
+
+       }
+        #menu {
+            height: 30px;
+            width: 250px;
+        }
+        #menu li{
+            float: left;
+            height:30px;
+            width:70px;
+            margin-right: 5px;
+            line-height: 20px;
+            text-align: center;
+            background: #cccccc;
+        }
+        #menu li.select {
+            background: #000;
+            color: white;
+        }
+        #content {
+            background: #cccccc;
+            line-height: 210px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+ <div id="contriner">
+     <ul id="menu">
+         <li class="select">js</li>
+         <li>html</li>
+         <li>css</li>
+     </ul>
+     <div id="content">
+            宝宝现在很忧伤！！！！
+     </div>
+ </div>
+ <script>
+     var arr = [11111111111,22222222222,3333333333];
+     var oContent = document.getElementById('content');
+     var oMenu = document.getElementById ('menu');
+     var aLi = oMenu.getElementsByTagName ('li');
+     for(var i=0;i<=aLi.length;i++){
+     }
+
+
+ </script>
+
+</body>
+</html>
+
