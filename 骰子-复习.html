@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background:black;
+            perspective: 1000px;
+        }
+        #container {
+            position:relative;
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            transform-style:preserve-3d;
+            animation: rotate 3s linear infinite ;
+        }
+        .cube {
+            position:absolute;
+            background: white;
+            text-align: center;
+            line-height: 200px;
+            width: 200px;
+            height: 200px;
+            color:black;
+            font-size:100px;
+            border:1px solid #fff;
+            border-radius:10%;
+            opacity:0.3;
+        }
+        .one{
+            transform:rotateY(180deg) translateZ(100px);
+        }
+        .two{
+            transform:rotateX(90deg) translateZ(100px);
+        }
+        .three{
+            transform:rotateY(90deg) translateZ(100px) ;
+        }
+        .four {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .five {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .six{
+            transform:translateZ(100px);
+        }
+        @keyframes rotate {
+            from{
+
+            }
+            to{
+                transform:rotateY(-360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li class="cube one">1</li>
+       <li class="cube two">2</li>
+        <li class="cube three">3</li>
+        <li class="cube four">4</li>
+        <li class="cube five">5</li>
+        <li class="cube six">6</li>
+    </ul>
+</div>
+
+</body>
+</html>

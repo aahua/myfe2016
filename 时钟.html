@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border:2px solid black;
+            margin: 100px auto;
+            position:relative;
+        }
+        #dial li{
+            width: 2px;
+            height: 8px;
+            background: #000000;
+            position:absolute;
+            left:150px;
+            transform-origin:0 150px;
+        }
+        #dial li:nth-child(5n+1){
+            height:14px;
+            background:red;
+        }
+        li:nth-child(2){
+            transform:rotate(6deg);
+        }
+        li:nth-child(3){
+            transform:rotate(12deg);
+        }
+        li:nth-child(4){
+            transform:rotate(18deg);
+        }
+        li:nth-child(5){
+            transform:rotate(24deg);
+        }
+        li:nth-child(6){
+            transform:rotate(30deg);
+        }
+        #hour {
+            width: 6px;
+            height: 70px;
+            background: #000000;
+            position: absolute;
+            left:148px;
+            top:80px;
+            transform-origin:bottom;
+        }
+        #minute{
+            width: 6px;
+            height: 90px;
+            background: green;
+            position:absolute;
+            left:148px;
+            top:60px;
+            transform-origin:bottom;
+        }
+        #second {
+            width: 3px;
+            height: 110px;
+            background: red;
+            position:absolute;
+            left:149px;
+            top:40px;
+            transform-origin:bottom;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <ul id="dial">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <script>
+        var oDial = document.getElementById('dial');
+        var html="";
+        var oClock =document.getElementById('clock');
+        var oHour =document.getElementById('hour');
+        var oSecond = document.getElementById('second');
+        var oMinute = document.getElementById('minute');
+        for( var i=0;i<60;i++){
+            html+="<li style='transform:rotate("+i*6+"deg)'></li>";
+        }
+        oDial.innerHTML=html;
+d
+        setInterval(function(){
+            var now = new Date();
+                   var second = now.getSeconds();
+                   var minute = now.getMinutes()+ second /60;
+                   var hour = now.getHours()+minute /60;
+            oHour.style.transform ="rotate("+ hour*30+"deg)";
+            oSecond.style.transform ="rotate("+ second *6+"deg)";
+            oMinute .style.transform ="rotate("+minute*6+"deg)";
+        },1000);
+
+
+    </script>
+
+</body>
+</html>
