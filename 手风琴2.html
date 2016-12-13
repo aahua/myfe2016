@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手风琴2</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        #container {
+            width: 550px;
+            height: 400px;
+            margin:100px auto;
+            overflow:hidden;
+           box-shadow:5px 5px 5px 5px  rgba(0, 0, 0, 0.3);
+        }
+        img{
+            width: 550px;
+            height: 400px;
+        }
+       #container  li{
+            float:left;
+            width:110px;
+            height: 400px;
+            position:relative;
+           transition: all 1s ease;
+        }
+       #container li div{
+            position:absolute;
+            width: 550px;
+           height: 30px;
+           line-height: 30px;
+           bottom:0;
+            color:#fff;
+            background:rgba(0 ,0 ,0 ,0.5);
+       }
+
+        #container:hover li{ /* 当鼠标滑到container的时候，里边的li的的变化*/
+            width: 30px;
+        }
+        #container li:hover{  /*当鼠标滑到li的时候,执行里边hover的语句；
+        这两个都是有顺序的关系，把他们两个调过来，因为都是li的样式，后面的会覆盖掉前面的效果；*/
+        width:400px;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li>
+        <div>描述1</div>
+        <img src="1.jpg" alt=""/>
+    </li>
+    <li>
+        <div>描述2</div>
+        <img src="2.jpg" alt=""/>
+    </li>
+    <li>
+        <div>描述3</div>
+        <img src="3.jpg" alt=""/>
+    </li>
+    <li>
+        <div>描述4</div>
+        <img src="4.jpg" alt=""/>
+    </li>
+    <li>
+        <div>描述5</div>
+        <img src="5.jpg" alt=""/>
+    </li>
+</ul>
+
+</body>
+<script>
+   /* var aImg = document.getElementsByTagName('img');
+    for( var i=0;i<9;i++){
+        aImg[i].style.left=+i*110+"px";
+        console.log(aImg.left);
+    }*/
+</script>
+</html>
