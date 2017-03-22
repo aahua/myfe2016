@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        h3{
+            width: 960px;
+            height: 100px;
+            background:#ccc;
+            margin: 30px auto;
+            line-height: 100px;
+            text-align: center;
+        }
+        figure {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            background: url(01.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+        section{
+            width: 960px;
+            margin:0 auto;
+        }
+
+        #left {
+            float:left;
+            width: 460px;
+            height: 200px;
+            background:green;
+
+        }
+        #right{
+            float:right;
+            width: 460px;
+            height: 200px;
+            background:lawngreen;
+        }
+        #right,#left{
+            display: table;
+        }
+        #right p,#left p{
+            display:table-cell;
+            vertical-align:middle;
+        }
+        #left {
+            width: 460px;
+            height: 200px;
+            background:green;
+            float:left;
+        }
+        #right {
+            width: 460px;
+            height: 200px;
+            background:yellowgreen;
+            float:right;
+        }
+        footer{
+            clear:both;
+        }
+        @media(max-width:959px){
+            h3{
+                width: 100%;
+            }
+            section {
+                width: 100%;
+            }
+            #right ,#left {
+                width: 50%;
+            }
+            figure {
+                width: 100%;
+                padding-top:56%;
+                height: 0;
+                background-image:url(01_s_2x.jpg );
+            }
+
+        }
+
+        @media(max-width: 460px){
+            #right ,#left {
+                width: 100%;
+            }
+            figure {
+                background-image:url(01_s.jpg ) ;
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<header><h3>页头</h3></header>
+<nav><h3>导航</h3></nav>
+<figure></figure>
+<section>
+    <aside id="left">
+        <p> 如果有来生，要做一棵树，站成永恒，没有悲欢的姿势，一半在土里安详，一半在风中飘扬。没想你一次，天生就掉一粒沙，从此有了撒哈拉；</p>
+    </aside>
+    <aside id="right">
+        <p>有的人走了就再也没回来过。所以，犹豫，是这个世界上最无情的杀手。我笑，便面如春花，定是能感动人的，任他是谁。我来不及认真的年轻，待明白过来时，只能选择认真的老去</p></aside>
+</section>
+<footer>
+    <h3>页脚</h3>
+</footer>
+</body>
+</html>
