@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+  {{firstName}},{{lastName}} = {{fullName}}
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            firstName:'zhang',
+            lastName :'san'
+//          fullName :'zhang san'
+        },
+        computed: {
+//              fullName:function(){
+//              return this.firstName + this.lastName;
+//        }
+            fullName:{
+                get:function(){
+                    return this.firstName + ' ' +this.lastName;//get是获取值
+                },
+                set:function(newVal,oldVal){//   set是设置值
+                    var arr = newVal.split(' ');
+                    this.firstName = arr[0];
+                    this.lastName = arr[1];
+                }
+            }
+    },
+
+
+
+
+
+    })
+</script>
+
+</body>
+</html>

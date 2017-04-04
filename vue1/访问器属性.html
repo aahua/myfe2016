@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg"/>
+    {{msg}}
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:"aalala"
+            }
+        });
+
+        var obj={};
+        Object.defineProperty(obj,'hello',{
+            get:function(){
+                console.log("....");
+            },
+            set:function(val){
+                console.log(val +"....");
+            }
+        })
+
+        obj.hello = "aaaaaa";
+    obj.hello;//      如果想要调用get里的函数，就要调用绑定的对象的方法
+    </script>
+</div>
+
+</body>
+</html>
