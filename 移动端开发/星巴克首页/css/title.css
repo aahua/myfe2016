@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width:96%;
+    margin:0 auto;
+}
+#title-box {
+    height: 100px;
+}
+#title-box .list{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-top: 25px;
+}
+#title-box .list span{
+    font-size: 13px;
+    width: 30px;
+    height: 16px;
+    display: inline-block;
+    text-align: center;
+}
+.logo{
+    width: 75px;
+    height: 75px;
+    margin: 20px auto;
+}
+.logo img{
+    width: 73px;
+    height: 73px;
+}
+#title-box .name{
+    height: 40px;
+    width: 100px;
+    float:right;
+    margin-top:-55px;
+}
+#title-box span{
+    font-size:19px;
+}
+#title-box .name a{
+    color:#bb5f3a;
+}
+
+
+
