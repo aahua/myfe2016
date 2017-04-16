@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+     *{
+         padding: 0;
+         margin: 0;
+     }
+     ul{
+            list-style:none;
+        }
+     #menu{
+         width: 200px;
+     }
+     #menu h3{
+         height: 40px;
+         background: #000000;
+         color: #fff;
+         line-height: 40px;
+         cursor: pointer;
+     }
+        .sub-menu{
+            width: 200px;
+            text-align: center;
+            border-bottom:1px #ccc dashed;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li>1234</li>
+            <li>3r43t</li>
+            <li>fcreh</li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li>1234</li>
+            <li>3r43t</li>
+            <li>fcreh</li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+   var oMenu = document.getElementById("menu");;
+    var aLi = oMenu.getElementsByTagName('li');
+    var aSubMenu = oMenu.getElementsByTagName('ul');
+
+   for(var i=0; i<aSubMenu.length; i++){
+       aSubMenu[i].onclick = function(e){
+           e.stopPropagation();
+       };
+   }
+
+    for(var i=0;i<aLi.length;i++){
+        if(aLi[i].className == "main-menu"){
+            aLi[i].bFlag = false;
+            aLi[i].onclick = function(){
+                var oSubMenu =this.getElementsByTagName("ul")[0];
+                if(this.bFlag){
+                    oSubMenu.style.display = "none";
+                }else{
+                    oSubMenu.style.display = "block";
+                }
+                this.bFlag = !this.bFlag;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
