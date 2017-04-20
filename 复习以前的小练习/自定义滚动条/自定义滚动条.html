@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #contain{
+            height: 200px;
+            width: 300px;
+            background: #cccccc;
+            position: relative;
+            overflow: hidden;
+        }
+        #content {
+            width: 280px;
+            position:absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+        }
+        #scroll-bar {
+            width: 20px;
+            height: 200px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background:#888888;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 20px;
+            position:absolute;
+            left: 0;
+            top: 0;
+            cursor:pointer;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="contain">
+    <div id="content">
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习什么情况？？（
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+        努力努力在努力开心开心再开心自信自信再自信点
+        强大强大再强大幸运幸运再幸运爱己爱人更爱家人
+        要努力好好对自己学习学再学习
+    </div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+</div>
+<script>
+    var oContain = document.getElementById('contain');
+    var oContent = document.getElementById('content');
+    var oScrollBar = document.getElementById('scroll-bar');
+    var oScrollBtn = document.getElementById('scroll-btn');
+
+    oScrollBtn.onmousedown = function(e){
+        e = e || window.event;
+        iDisX = e.clientX;
+        iDisY = e.clientY - oContain.offsetTop - oScrollBtn.offsetTop;
+
+        document.onmousemove = function(e){
+            e = e|| window.event;
+
+            var iTop = e.clientY - oContain.offsetTop - iDisY;
+
+            if(iTop <=0){
+                iTop = 0;
+            }
+            if(iTop>= oContain.offsetHeight - oScrollBtn.offsetHeight){
+                iTop= oContain.offsetHeight - oScrollBtn.offsetHeight
+            }
+            oScrollBtn.style.top = iTop + "px";
+
+            var fScale = iTop / (oContain.offsetHeight - oScrollBtn.offsetHeight);
+            oContent.style.top = -(oContent.offsetHeight - oContain.offsetHeight) * fScale + "px";
+            return false;
+        }
+        document.onmouseup = function(){  // 这个作用要写在move的作用域里
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+    }
+</script>
+</body>
+</html>
