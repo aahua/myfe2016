@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #room{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 150px auto;
+        }
+        #menu li{
+            width: 120px;
+            height: 30px;
+            border:1px solid #ccc;
+            float:left;
+            text-align: center;
+            line-height: 30px;
+        }
+        #contain{
+            position: absolute;
+            top:33px;
+            height: 360px;
+            background: #cccccc;
+            width: 400px;
+        }
+        .selected{
+            color:white;
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="room">
+        <ul id="menu">
+            <li class="selected">努力</li>
+            <li>努力</li>
+            <li>再努力</li>
+        </ul>
+        <div id="contain">
+            水我没少喝，为什么这个感冒来得那么痛苦，感觉自己的未来已经无望了。。。头好晕啊，继续，再做！
+        </div>
+    </div>
+
+
+    <script>
+        var oRoom = document.getElementById('room');
+        var aLi = document.getElementsByTagName('li');
+        var oContain = document.getElementById('contain');
+
+        var arr = [1111111,222222,333333];
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className = "";
+                }
+                this.className = "selected";
+                oContain.innerHTML = arr[this.index];
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #room{
+            width: 400px;
+            height: 400px;
+            margin:100px auto;
+            position: relative;
+        }
+
+        #menu li{
+            width: 100px;
+            height: 30px;
+            float: left;
+            margin-right: 3px;
+            background:#ccc;
+            line-height:30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor:pointer;
+        }
+        #menu .selected{
+            background: #000;
+            color:white;
+        }
+        #content{
+            width: 400px;
+            height: 367px;
+            background: #cccccc;
+            position: absolute;
+            top:33px;
+        }
+    </style>
+</head>
+<body>
+   <div id="room">
+       <ul id="menu">
+           <li class="selected">努力</li>
+           <li>努力</li>
+           <li>再努力</li>
+       </ul>
+       <div id="content">
+           符庆玮  你只能很努力才你能找到工作。知道吗？
+           以后才把水彩好好学了，现在不行，不能上课玩手机了
+           不能贪玩，每天做三个小程序以上！！！大的框架或项目
+           就两天一个，快点吧英语卷子做完
+       </div>
+   </div>
+
+   <script>
+       var oMenu = document.getElementById('menu');
+       var aLi = oMenu.getElementsByTagName('li');
+       var oContent = document.getElementById('content');
+
+       var arr = [1213,135,68666];
+       for(var i=0;i<aLi.length;i++){
+           aLi[i].index = i;
+           aLi[i].onclick = function(){
+               for(var i=0;i<aLi.length;i++){
+                   aLi[i].className = "";
+               }
+               aLi[this.index].className = "selected";
+               oContent.innerHTML = arr[this.index];
+           }
+
+       }
+   </script>
+
+</body>
+</html>
